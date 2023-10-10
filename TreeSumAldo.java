@@ -1,3 +1,4 @@
+import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.Stopwatch;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class TreeSumAldo {
     private HashMap<Integer, Integer> map;
     private List<String> resultList;
 
-    public ThreeSum(int[] inputArray) {
+    public TreeSumAldo(int[] inputArray) {
         this.arr = inputArray;
         this.count = 0;
         this.map = new HashMap();
@@ -45,7 +46,7 @@ public class TreeSumAldo {
         int N = array.length;
         for(int i=0; i <N; i++)
             for (int j = i + 1; j < N; j++)
-                for (int k = j + 1; k < N; k = k++)
+                for (int k = j + 1; k < N; k++)
                     if (array[i] + array[j] + array[k] == 0)
                         count++;
         return count;
@@ -60,18 +61,21 @@ public class TreeSumAldo {
     }
 
     public static void main(String[] args) {
-        Stopwatch stopwatch = new Stopwatch();
+        /*Stopwatch stopwatch = new Stopwatch();
         int[] array = {30,-40,10,30,-20,-10,-40,40,0,-10,0,10};
         double time = stopwatch.elapsedTime();
         System.out.println("Total:" + count(array));
-        System.out.println("Time:" + time);
+        System.out.println("Time:" + time);*/
 
-        ThreeSum ts = new ThreeSum(array);
-        /*ts.computeThreeSum();
+
+        int[] array = {30,-40,10,30,-20,-10,-40,40,0,-10,0,10};
+
+        TreeSumAldo ts = new TreeSumAldo(array);
+        ts.computeThreeSum();
         StdOut.println("The number of 3-sum is: " + ts.getCount());
         List<String> resultList = ts.getResultList();
         resultList.forEach((str) -> {
             StdOut.println(str);
-        });*/
+        });
     }
 }

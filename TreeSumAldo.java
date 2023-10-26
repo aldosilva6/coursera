@@ -44,11 +44,16 @@ public class TreeSumAldo {
     public static int count(int[] array){
         int count = 0;
         int N = array.length;
-        for(int i=0; i <N; i++)
-            for (int j = i + 1; j < N; j++)
-                for (int k = j + 1; k < N; k++)
-                    if (array[i] + array[j] + array[k] == 0)
+        for(int i=0; i < N-2; i++) {
+            for (int j = i + 1; j < N - 1; j++){
+                for (int k = j + 1; k < N; k++) {
+                    if (array[i] + array[j] + array[k] == 0) {
+                        System.out.println("array[" + i + "]:" + array[i] + " array[" + j + "]:" + array[j] + " array[" + k + "]:" + array[k]);
                         count++;
+                    }
+                }
+            }
+        }
         return count;
     }
 
@@ -62,13 +67,13 @@ public class TreeSumAldo {
 
     public static void main(String[] args) {
         /*Stopwatch stopwatch = new Stopwatch();
-        int[] array = {30,-40,10,30,-20,-10,-40,40,0,-10,0,10};
+        int[] array = {0, -1, 2, -3, 1};
         double time = stopwatch.elapsedTime();
         System.out.println("Total:" + count(array));
         System.out.println("Time:" + time);*/
 
 
-        int[] array = {30,-40,10,30,-20,-10,-40,40,0,-10,0,10};
+        int[] array = {-30,40,-10};
 
         TreeSumAldo ts = new TreeSumAldo(array);
         ts.computeThreeSum();
@@ -77,5 +82,6 @@ public class TreeSumAldo {
         resultList.forEach((str) -> {
             StdOut.println(str);
         });
+
     }
 }
